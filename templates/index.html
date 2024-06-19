@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="c">Мобільні телефони</h1>
+<div class="card-grid row">
+  {% for card in fone %}
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+      <div class="card" data-bs-toggle="modal" data-bs-target="#modal{{ loop.index }}" style="max-width: 18rem;">
+        <img src="{{ card[5] }}" class="card-img-top" alt="{{ card[1] }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ card[1] }}</h5>
+          <p class="card-text">{{ card[2] }}</p>
+          <h5 class="card-text">Ціна: {{ card[3] }} ₴</h5>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="modal{{ loop.index }}" tabindex="-1" aria-labelledby="modalLabel{{ loop.index }}" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel{{ loop.index }}">{{ card[1] }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="{{ card[5] }}" class="img-fluid mb-3" alt="{{ card[1] }}">
+
+            <p>{{ card[2] }}</p>
+            <h5>Ціна: {{ card[3] }} ₴</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Купити</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock main %}

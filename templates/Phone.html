@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="p">Apple</h1>
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 4</div>
+    <img src="https://content2.rozetka.com.ua/banner_category/image/original/440084159.jpg" style="width:100%">
+    <div class="text">Caption Text 1</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 4</div>
+    <img src="https://content.rozetka.com.ua/banner_category/image/original/437041850.jpg" style="width:100%">
+    <div class="text">Caption Text 2</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 4</div>
+    <img src="https://content1.rozetka.com.ua/banner_category/image/original/437108533.jpg" style="width:100%">
+    <div class="text">Caption Text 3</div>
+  </div>
+
+
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n - 1);
+}
+
+function showSlides() {
+  const slides = document.getElementsByClassName("mySlides");
+  const dots = document.getElementsByClassName("dot");
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove('fade-in');
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].style.display = "block";
+  slides[slideIndex - 1].classList.add('fade-in');
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  dots[slideIndex - 1].className += " active";
+
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+
+// Call showSlides function to start slideshow immediately
+showSlides();
+
+</script>
+<div class="card-grid row">
+  {% for card in apple %}
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+      <div class="card" data-bs-toggle="modal" data-bs-target="#modal{{ loop.index }}" style="max-width: 18rem;">
+        <img src="{{ card[5] }}" class="card-img-top" alt="{{ card[1] }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ card[1] }}</h5>
+          <p class="card-text">{{ card[2] }}</p>
+          <h5 class="card-text">Ціна: {{ card[3] }} ₴</h5>
+        </div>
+      </div>
+    </div>
+  <div class="modal fade" id="modal{{ loop.index }}" tabindex="-1" aria-labelledby="modalLabel{{ loop.index }}" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel{{ loop.index }}">{{ card[1] }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="{{ card[5] }}" class="img-fluid mb-3" alt="{{ card[1] }}">
+
+            <p>{{ card[2] }}</p>
+            <h5>Ціна: {{ card[3] }} ₴</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endfor %}
+
+{% endblock main %}
+
+
+
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='page1.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+
+
+
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="data:image/jpeg;base64,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" alt="" width="40" height="34" class="d-inline-block align-text-top">
+      MOBILE store
+    </a>
+  </div>
+</nav>
+<div style="background-image: url('{{ url_for('static', filename='images (2).jpg') }}');">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Акції</a>
+        </li>
+        <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Каталоги товарів
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="{{ url_for('IPhone') }}">Apple</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('Xiaomi') }}">Xiaomi</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('Samsung') }}">Samsung</a></li>
+        <li><a class="dropdown-item" href="#">Poco</a></li>
+
+        </ul>
+      </div>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</div>
+  {% block main %}
+  {% endblock main %}
+
+
+</div>
+<h6 class="b">Найкращий онлайн магазин телефонів</h6>
+<div class="additional-info mt-5">
+  <h3>Про наш магазин</h3>
+  <p>Наш магазин пропонує найкращі мобільні телефони за вигідними цінами. Ми співпрацюємо з провідними виробниками, щоб забезпечити вас якісною технікою. У нас ви знайдете найновіші моделі мобільних телефонів.</p>
+
+  <h3>Контактна інформація</h3>
+  <p>Адреса: м. Київ, вул. Хрещатик, 1</p>
+  <p>Телефон: +380 44 123 4567</p>
+  <p>Email: info@mobile_store.ua</p>
+
+
+</div>
+</body>
+</html>
